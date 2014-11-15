@@ -1,0 +1,8 @@
+//Bentuk data yang di respon oleh server 
+{
+ 	"PENJUAL": [],
+ 	"DATA_PENJUAL_SIZE": 6,
+ 	"QUERY": "SELECT * FROM penjual",
+ 	"RECEIVE_DATA": "NULL",
+ 	"LAST_INSERTED_ID": 0
+ }
