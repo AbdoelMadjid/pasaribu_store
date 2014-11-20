@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 11, 2014 at 12:17 PM
--- Server version: 5.5.8
+-- Generation Time: 20 Nov 2014 pada 17.04
+-- Versi Server: 5.5.8
 -- PHP Version: 5.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `barang`
+-- Struktur dari tabel `barang`
 --
 
 CREATE TABLE IF NOT EXISTS `barang` (
@@ -43,20 +43,28 @@ CREATE TABLE IF NOT EXISTS `barang` (
   `deskripsi_barang` text NOT NULL,
   `favorite` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_barang`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=33 ;
 
 --
--- Dumping data for table `barang`
+-- Dumping data untuk tabel `barang`
 --
 
 INSERT INTO `barang` (`id_barang`, `id_user`, `id_merek`, `id_penjual`, `id_gambar`, `nama_barang`, `stok_barang`, `satuan_barang`, `harga_barang`, `tgl_harga_stok_barang`, `kode_barang`, `lokasi_barang`, `kategori_barang`, `deskripsi_barang`, `favorite`) VALUES
 (1, 1, 4, 2, 2, 'Lampu Depan V.R New', 20, 'kotak', 60000, '2014-07-22', '', '', 'automotif', 'Lampu Depan V.R New dengan kualitas prima', 1),
-(2, 1, 1, 1, 2, 'Samsung 4K TV', 3, 'unit', 80000000, '2014-11-05', 'TV-S4K', '', 'elektronik', 'TV dengan ketajaman layar mengagumkan dengan resolusi UHD (4K), rasakan sensasi menonton iMax di rumah Anda.', 0);
+(2, 1, 1, 1, 2, 'Samsung 4K TV', 3, 'unit', 80000000, '2014-11-05', 'TV-S4K', '', 'elektronik', 'TV dengan ketajaman layar mengagumkan dengan resolusi UHD (4K), rasakan sensasi menonton iMax di rumah Anda.', 0),
+(10, 1, 5, 2, 0, 'Lampu Sipion S75', 35, 'Kotak', 75000, '2014-11-15', 'KODE', 'LOKASI', 'Automotif', 'Lampu depan (biasa)', 0),
+(11, 1, 2, 2, 0, 'Lampu Depan V.R New Aspira', 1, 'Kotak', 60000, '2014-11-16', 'KODE', 'LOKASI', 'Automotif', 'Lampu Biasa', 0),
+(12, 1, 4, 2, 0, 'Pangkon V.R New', 1, 'Kotak', 45000, '2014-11-16', 'KODE', 'LOKASI', 'Automotif', 'Kualitas nomor 1', 0),
+(13, 1, 4, 2, 0, 'Batok Depan V.R New', 1, 'Kotak', 46000, '2014-11-16', 'KODE', 'LOKASI', 'Automotif', 'Batok utk motor tipe V.R New', 0),
+(28, 1, 1, 2, 0, 'Ban Dalam Artko Biasa', 200, 'Kotak', 45000, '2014-11-16', 'KODE', 'LOKASI', 'Automotif', 'Ban Dalam Sorong/Artko Biasa', 0),
+(29, 1, 4, 2, 0, 'Kunci Kontak RX King, Asli', 23, 'Kotak', 85000, '2014-11-16', 'KODE', 'LOKASI', 'Automotif', 'Kunci kontak kualitas bagus,\npersamaan utk GL King, Honda, dsb. :v', 0),
+(30, 1, 4, 2, 0, 'Kunci Kontak RX King, Seken', 3, 'Kotak', 45000, '2014-11-16', 'KODE', 'LOKASI', 'Automotif', 'Harga Murah', 0),
+(32, 1, 1, 14, 0, 'Kol TV 32''''', 25, 'Unit', 5000, '2014-11-17', 'KODE', 'LOKASI', 'Elektronik', 'Test', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `barang_favorite`
+-- Struktur dari tabel `barang_favorite`
 --
 
 CREATE TABLE IF NOT EXISTS `barang_favorite` (
@@ -68,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `barang_favorite` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `belanja`
+-- Struktur dari tabel `belanja`
 --
 
 CREATE TABLE IF NOT EXISTS `belanja` (
@@ -82,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `belanja` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `favorite`
+-- Struktur dari tabel `favorite`
 --
 
 CREATE TABLE IF NOT EXISTS `favorite` (
@@ -91,12 +99,20 @@ CREATE TABLE IF NOT EXISTS `favorite` (
   `nama_favorite` varchar(50) NOT NULL,
   `deskripsi` varchar(100) NOT NULL,
   PRIMARY KEY (`id_favorite`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data untuk tabel `favorite`
+--
+
+INSERT INTO `favorite` (`id_favorite`, `warna_favorite`, `nama_favorite`, `deskripsi`) VALUES
+(1, '#A800AB', 'Langka', 'Barang-barang yang langka di pasaran.'),
+(2, '#00BA29', 'Jarang Laku', 'Barang-barang yang jarang ada pembeli');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gambar_barang`
+-- Struktur dari tabel `gambar_barang`
 --
 
 CREATE TABLE IF NOT EXISTS `gambar_barang` (
@@ -107,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `gambar_barang` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `gambar_barang`
+-- Dumping data untuk tabel `gambar_barang`
 --
 
 INSERT INTO `gambar_barang` (`id_gambar`, `lokasi_gambar`, `deskripsi_gambar`) VALUES
@@ -116,7 +132,7 @@ INSERT INTO `gambar_barang` (`id_gambar`, `lokasi_gambar`, `deskripsi_gambar`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `log_harga`
+-- Struktur dari tabel `log_harga`
 --
 
 CREATE TABLE IF NOT EXISTS `log_harga` (
@@ -131,7 +147,7 @@ CREATE TABLE IF NOT EXISTS `log_harga` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `log_stok`
+-- Struktur dari tabel `log_stok`
 --
 
 CREATE TABLE IF NOT EXISTS `log_stok` (
@@ -145,7 +161,7 @@ CREATE TABLE IF NOT EXISTS `log_stok` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `log_transaksi`
+-- Struktur dari tabel `log_transaksi`
 --
 
 CREATE TABLE IF NOT EXISTS `log_transaksi` (
@@ -160,7 +176,7 @@ CREATE TABLE IF NOT EXISTS `log_transaksi` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `merek`
+-- Struktur dari tabel `merek`
 --
 
 CREATE TABLE IF NOT EXISTS `merek` (
@@ -172,7 +188,7 @@ CREATE TABLE IF NOT EXISTS `merek` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `merek`
+-- Dumping data untuk tabel `merek`
 --
 
 INSERT INTO `merek` (`id_merek`, `nama_merek`, `logo_merek`, `deskripsi_merek`) VALUES
@@ -185,7 +201,7 @@ INSERT INTO `merek` (`id_merek`, `nama_merek`, `logo_merek`, `deskripsi_merek`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `penjual`
+-- Struktur dari tabel `penjual`
 --
 
 CREATE TABLE IF NOT EXISTS `penjual` (
@@ -194,26 +210,29 @@ CREATE TABLE IF NOT EXISTS `penjual` (
   `nama_toko` varchar(100) NOT NULL,
   `alamat_toko` varchar(200) NOT NULL,
   `geolocation` varchar(100) NOT NULL,
-  `kontak_toko` varchar(100) NOT NULL,
+  `kontak_toko` varchar(100) NOT NULL DEFAULT '0',
   `email_toko` varchar(100) NOT NULL,
   PRIMARY KEY (`id_penjual`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
--- Dumping data for table `penjual`
+-- Dumping data untuk tabel `penjual`
 --
 
 INSERT INTO `penjual` (`id_penjual`, `nama_penjual`, `nama_toko`, `alamat_toko`, `geolocation`, `kontak_toko`, `email_toko`) VALUES
-(1, 'Umak Riska', 'Hikmah Jaya', 'Jalan Merdeka, Padangsidimpuan', '', '', 'hikmah_jaya@gmail.com'),
-(2, 'Bintang Motor Staff', 'Bintang Motor', 'Padangsidimpuan', '', '', ''),
-(3, '', 'Hannocs Medan', '', '', '0888', ''),
-(4, '', 'Zaman Baru', 'Padangsidimpuan', '', '', ''),
-(5, '', 'Zaman Baru', 'Padangsidimpuan', '', '', '');
+(1, 'Umak Riska', 'Hikmah Jaya', 'Jalan Merdeka, Padangsidimpuan', '', '0', 'hikmah_jaya@gmail.com'),
+(2, 'Bintang Motor Staff', 'Bintang Motor', 'Padangsidimpuan', '', '0', ''),
+(3, '', 'Hannocs Medan', 'N/A (Pakai Mobil)', '', '0888', ''),
+(4, '', 'Zaman Baru', 'Padangsidimpuan', '', '0', ''),
+(13, '', 'Sinarmas', 'Jakarta', '', '02187', ''),
+(14, '', 'Era', 'Bandung', '', '06789', ''),
+(15, '', 'Susi Air', 'Jl. Dr. Mansyur Medan', '', '061-354834', ''),
+(16, '', 'PT. Hyunday Indonesia', 'Jl. Baru 2005, Jakarta', '', '021-12345', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
@@ -226,7 +245,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id_user`, `user_name`, `email`, `password`, `pin`) VALUES
