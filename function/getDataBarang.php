@@ -1,11 +1,12 @@
 <?php 
-	include("koneksi.php"); 
+	include("koneksi.php");
+	include("validate_string.php");
 	
 	$receive = "NULL";
 	
 	$FILTER_FIELD_NAME 	= "nama_barang";
 	$TABLE_BARANG 		= "barang";
-	$LIMIT_DATA		= 15;
+	$LIMIT_DATA			= 50;
 	$FIELD_ID_BARANG	= "id_barang";
 	$FIELD_ID_USER		= "id_user";
 	$FIELD_NAMA_BARANG	= "nama_barang";
@@ -17,11 +18,13 @@
 	
 	if( isset( $_GET['q'] ) ) {
 		//Mencari data barang
-		$searchKey = $_GET['q'];	
-		$QUERY = sprintf("SELECT * FROM %s WHERE %s LIKE  '% %s %' LIMIT %d", 
+		$searchKey = $_GET['q'];
+		
+		$QUERY = sprintf("SELECT * FROM %s WHERE %s LIKE  '%%%s%%' LIMIT %s ", 
 					  $TABLE_BARANG, 
-					  $FILTER_FIELD_NAME, $searchKey,
-					  $LIMIT_DATA);
+					  $FILTER_FIELD_NAME,
+					  $searchKey, 
+					  $LIMIT_DATA );
 		
 	} else if( isset( $_POST['id_user'] ) ) {
 		//Permintaan normal, mengambil data barang sesuai id_user aktif
@@ -59,7 +62,7 @@
 	$q = mysql_query($QUERY);
 	
 	if(!$q) {
-		$message = array("msg" => "Gagal");
+		$message = array("msg" => "Gagal $QUERY");
 		json_encode($message, true);
 		print_r(json_encode($message, true));		//Informasi yg dikirimkan kepada client
 		return;
@@ -75,7 +78,6 @@
 	header('Content-type: application/json');
 	
 	//Final data will send to client side
-	//$data = " {  \"".$header_barang."\" : " . json_encode($dataTable, true) . ",\"".$header_data_size. "\" : " . $data_size . ", \"query\" : \"" . $QUERY ."\", \"receive\" : \"" . $receive ."\" } ";		
 	$data = sprintf('
 	{  
 	"%s" : %s , 
