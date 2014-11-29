@@ -1,26 +1,1 @@
-<?php
-
-	//Mengembalikan array data sesuai quaery yang di minta
-	function getMySQLData($query_string) {
-		
-		//Array utk menampung data dari database
-		$dataTable = array();
-
-		$q = mysql_query($query_string);
-		
-		if($q) {
-			
-			// Cara Simpel make mysql_fetch_object
-			while($data = mysql_fetch_object($q)){
-				$dataTable[] = $data; 
-			}
-			
-			return $dataTable;
-			
-		} else {
-			return null;
-		}			
-		
-	}
-
-?>
+<?php	//Mengembalikan array data sesuai quaery yang di minta.	//Utk ekseskusi query pengambilan data 	function getMySQLData($query_string) {				//Array utk menampung data dari database		$dataTable = array();		$q = mysql_query($query_string);				if($q) {						// Cara Simpel make mysql_fetch_object			while($data = mysql_fetch_object($q)){				$dataTable[] = $data; 			}						return $dataTable;					} else {			return null;		}						}	function getLastIdBasedInsertion($query_string) {				$query_execution = mysql_query($query_string);				return mysql_insert_id();	}?>
