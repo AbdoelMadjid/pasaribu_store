@@ -1,10 +1,1 @@
-<?php
-	$HOST = "localhost";
-	$ROOT = "root";
-	$PASSWORD = "root"; //Kosongkan jika tidak ada password mysql di laptop mu. Kosong -> ""
-	$DB_NAME = "pasaribu_store";
-	
-    $koneksi = mysql_connect($HOST,$ROOT,$PASSWORD) or die (mysql_error() . "<br>Gagal koneksi ke server !!");
-	$database = mysql_select_db($DB_NAME) or die(mysql_error() . "<br>Gagal memilih database !!");
-	
-?>
+<?php	$HOSTNAME = "localhost";	$USERNAME = "root";	$PASSWORD = "root"; //Kosongkan jika tidak ada password mysql di laptop mu. Kosong -> ""	$DB_NAME = "pasaribu_store";	    $koneksi = mysql_pconnect($HOSTNAME,$USERNAME,$PASSWORD) or trigger_error(mysql_error(), E_USER_ERROR);	$database = mysql_select_db($DB_NAME, $koneksi) or die(mysql_error() . "<br>Gagal memilih database !!");	?>
